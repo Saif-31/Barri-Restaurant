@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Call Il-Barri Restaurant in Valletta, Malta for reservations and orders using AI voice assistant">
+  <meta name="theme-color" content="#d97706">
+  <title>Il-Barri Restaurant - Voice Reservations & Orders</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>🍽️ Il-Barri Restaurant</h1>
+      <p>Voice reservations and orders - Valletta, Malta</p>
+    </header>
+
+    <!-- Status Indicator -->
+    <div id="status" class="status status-disconnected">
+      <span class="status-dot"></span>
+      <span id="status-text">Ready to connect</span>
+    </div>
+
+    <!-- Call Controls -->
+    <div class="controls">
+      <button id="start-btn" class="btn btn-start" aria-label="Start voice call">
+        🎤 Start Call
+      </button>
+      <button id="end-btn" class="btn btn-end" disabled aria-label="End voice call">
+        📞 End Call
+      </button>
+    </div>
+
+    <!-- Audio Level Indicator -->
+    <div id="audio-level-container" class="audio-level-container" style="display: none;">
+      <div class="audio-level-label">Your Voice Level:</div>
+      <div class="audio-level-bar">
+        <div id="audio-level" class="audio-level-fill"></div>
+      </div>
+    </div>
+
+    <!-- Transcript Display -->
+    <div class="transcript-container">
+      <h3>📝 Conversation</h3>
+      <div id="transcript" class="transcript">
+        <p class="transcript-empty">Conversation will appear here...</p>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      <h4>📱 How to use:</h4>
+      <ol>
+        <li>Click <strong>"Start Call"</strong> and allow microphone access</li>
+        <li>Speak naturally - our AI will respond in real-time</li>
+        <li>For <strong>reservations</strong>: Tell us date, time, and party size</li>
+        <li>For <strong>orders</strong>: Ask about our menu and place your order</li>
+        <li>The AI will confirm all details and provide confirmation codes</li>
+        <li>Click <strong>"End Call"</strong> when finished</li>
+      </ol>
+      <p class="instructions-note">
+        💡 <strong>Tip:</strong> You can ask about menu items, dietary restrictions, and allergens. We speak English!
+      </p>
+      <p class="instructions-note">
+        📍 <strong>Location:</strong> 81 Old Theatre Street, Valletta VLT 1429, Malta | ☎️ +356 2133 7367
+      </p>
+    </div>
+
+    <!-- Error Display -->
+    <div id="error" class="error" style="display: none;"></div>
+
+    <!-- Warning Display -->
+    <div id="warning" class="warning" style="display: none;"></div>
+
+    <!-- Session Info -->
+    <div id="session-info" class="session-info" style="display: none;">
+      <small>Session ID: <span id="session-id"></span></small>
+      <small>Expires: <span id="expires-at"></span></small>
+    </div>
+  </div>
+
+  <!-- Audio element for AI voice -->
+  <audio id="audio-playback" autoplay></audio>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
